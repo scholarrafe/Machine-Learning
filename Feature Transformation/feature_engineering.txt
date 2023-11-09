@@ -1,0 +1,84 @@
+
+
+
+1. Scaling Transformation:  ( why to do : making the input columns same scale by transforming their mean and strandard deviation in a same range)
+
+				(a) Standardization(mean=0,sd=1): from sklearn.preprocessing import StandardScaler : 
+									st = StandardScaler()
+									st.fit_transform(x_train)
+									st.transform(x_test)
+
+				(b) MinMaxScaling(data_spread[0,1]): from sklearn.preprocessing import MinMaxScaler:
+									mms = MinMaxScaler()
+									mms.fit_transform(x_train)
+									mms.transform(x_test)
+
+2. Encoding Categorical data: ( why to do : categorical string transform into numerical values )
+
+				(a) OrdinalEncoding(for ordinal data): from sklearn.preprocessing import OrdinalEncoder
+									oe = OrdinalEncoder(categories=['school', 'college', 'university'])
+									oe.fit_transform(x_train)
+									oe.transform(x_test)
+
+				(b) OneHotEncoder(for nominal data): from sklearn.preprocessing import OneHotEncoder
+									ohe = OneHotEncoder(drop='first', sparse_output=False) : drop='first' will drop the first dummy column,
+									ohe.fit_transform(x_train)		               : sparse_output=False will make the output in an array form
+									ohe.transform(x_test)
+
+				(c) LabelEncoder(for only output data(y)): from sklearn.preprocessing import LabelEncoder
+									le = LabelEncoder()
+									le.transform(y_train)					
+									le.transform(y_test)									
+
+3. Mathematical Transformation:	( why to do : to transform the data in a normal distribution form)
+
+									Before apply this Transformation: visualise and understand whether data is normal distributed or not using three way:
+									o. data.skew() : normal distributed if the value is -0.5<x<0.5
+									o. kdeplot of seaborn 
+									o. from scipy import stats
+									   stats.probplot(data.column, plot=plt)
+
+
+				(a) FunctionTransform(using a func.): from slearn.preprocessing import FunctionTransformer:
+									ft = FunctionTransformer(func), func = np.log1p, np.sqrt, lambda X:1/(x+0.0001), or any function using lambda.
+									ft.fit_transform(x_train)
+									ft.transform(x_test)
+
+				(b) PowerTransformation(finding power): from skkearn.preprocessing import PowerTransformer:
+									pt = PowerTransformer() : Yeo-Johnson Transformation(both positive and negetive value) by default in PowerTransformer
+									or pt = PowerTransformer(method='box-cox') : Box-Cox Transformation (only for positive value x>0)
+									pt.fit_transform(x_train)
+									pt.transform(x_test)
+									(NOTE: to find whether values are spread to positive or negetive use : data.describe() )
+
+4. Discretization/Binning : ( why to do : divide the sparse data into categorical bins like histogram to (i) handle outliers (ii) import value spread ) 
+
+				(a) KBinsDiscretization:  from sklearn.preprocessing import KBinsDiscretizer
+									kbd = KBinsDiscretizer(n_bins=10, strategy='uniform', encode='ordinal'/'onehot') : strategy = 'kmeans'/'quantile'
+									kbd.fit_transform()
+									kbd.transform(x_test)
+
+				(b) Binarization (make only 2 category): from sklearn.preprocessing import Binarizer
+									bn = Binarizer(threshold=0, copy=False) : threshold=0 : if the value is greater than zero then become 1 otherwise 0
+									bn.fit_transform(x_train)
+									bn.transform(x_test)
+
+
+
+5. Imputation : ( why to do : to fill the missing values )
+				
+				(a) SimpleImputation: from sklearn.impute import SimpleImputer
+									si = SimpleImputer(strategy='most_frequent') , strategy by default : mean
+									or si = SimpleImputer(strategy='constant', fill_value=n) , if you want to fill by n, a constant
+									si.fit_transform(x_train)
+
+				(c) filling by a random number from other values: no sklearn module to do this, you can do it by,
+									np.where(column.isnull(), random.choice(column), column)
+
+				(c) making an missing indicator column: no sklearn module for this, you can easily do this by,
+									data['new'] = data.column.isnull()
+									
+
+
+
+
