@@ -14,7 +14,7 @@ Fist I want to focus on Feature Engineering
     <ul>
     <li>Log Transformation</li>
     <li>Square Transformation</li>
-    <li>Robust Scaling</li>
+    <li>Reciprocal Transformation</li>
     </ul>
 </ol>
 </html>
