@@ -11,5 +11,10 @@ Fist I want to focus on Feature Engineering
     <li>Robust Scaling</li>
   </ul>
   <li>Gaussian Transformation</li>
+    <ul>
+    <li>Log Transformation</li>
+    <li>Square Transformation</li>
+    <li>Robust Scaling</li>
+    </ul>
 </ol>
 </html>
