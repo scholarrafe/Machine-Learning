@@ -14,6 +14,7 @@ Fist I want to focus on Feature Engineering
     <ul>
     <li>Log Transformation</li>
     <li>Square Transformation</li>
+    <li>Square Root</li>
     <li>Reciprocal Transformation</li>
     <li>Exponential Transformation</li>
     </ul>
