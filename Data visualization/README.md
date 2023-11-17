@@ -6,4 +6,4 @@ for data visualization process. Those are:
   <li>Seaborn</li>
   <li>Plotly</li>
 </ul>
-We are going to explore those library briefly
+We are going to explore those library.
