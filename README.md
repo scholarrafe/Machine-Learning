@@ -21,3 +21,8 @@ In this Repository I'm going to upload my machine learning.
 </html>
 
 # Data Visualization
+## Libraries
+
+- Matplotlib
+- Seaborn
+- Plotly
