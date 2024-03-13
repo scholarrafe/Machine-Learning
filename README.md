@@ -24,5 +24,4 @@ In this Repository I'm going to upload my machine learning.
 ## Libraries
 
 - Matplotlib
-- Seaborn
-- Plotly
+- Seabor
